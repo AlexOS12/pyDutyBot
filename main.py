@@ -14,6 +14,7 @@ class MyClient(discord.Client):
             await message.reply("I am an idiot bot! XD", mention_author=True)
 
 intents = discord.Intents.default()
+intents.members = True
 intents.message_content = True
 
 client = MyClient(intents=intents)
