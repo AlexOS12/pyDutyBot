@@ -2,10 +2,15 @@ version: '3'
 
 services:
   billy-bot:
+    container_name: billy-bot
     build: ./app
     networks:
       - DB
+    depends_on:
+      - mysql
+    restart: always
   mysql:
+    container_name: mysql-db
     image: mysql:latest
     ports:
       - 3306:3306
@@ -15,6 +20,7 @@ services:
       - MYSQL_ROOT_PASSWORD=qwerty
     volumes:
       - ./datas:/var/lib/mysql
+    restart: always
 
 
 networks:
