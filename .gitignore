@@ -1,5 +1,4 @@
 __pycache__
 /app/dbworker/__pycache__
-/app/token.txt
-/app/connect_data.txt
+/app/*.txt
 datas
