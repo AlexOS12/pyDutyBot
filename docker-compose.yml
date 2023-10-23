@@ -5,10 +5,17 @@ services:
     build: ./app
     networks:
       - DB
-  mongo:
-    image: mongo:latest
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
     networks:
       - DB
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwerty
+    volumes:
+      - ./datas:/var/lib/mysql
+
 
 networks:
  DB:
