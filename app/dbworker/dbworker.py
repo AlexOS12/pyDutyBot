@@ -27,6 +27,9 @@ try:
         print("Успешный подсос к БД")
         while 1:
             query = input(">>> ")
+            if query == 'none':
+                connection.commit()
+                exit()
             try:
                 with connection.cursor() as cursor:
                     cursor.execute(query)
