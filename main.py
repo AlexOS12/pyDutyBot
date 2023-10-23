@@ -18,5 +18,10 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
+token : str
+
+with open('token.txt', 'r') as file:
+    token = file.read().replace('\n', '')
+
 client = MyClient(intents=intents)
-client.run('MTE2NjA1NjQ4NTcwNTQ5MDUyMg.GMwYNB.vY3AMGZCFaGJay4ECk_09J0F01KMQOjXUaGfOc')
+client.run(token)
