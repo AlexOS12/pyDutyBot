@@ -1,4 +1,7 @@
 import discord
+from colorama import init, Fore, Back, Style
+
+init()
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -11,7 +14,7 @@ class MyClient(discord.Client):
             pass
 
         if message.content.startswith('/whoami'):
-            print(message.author.name)
+            print(Fore.GREEN + message.author.name, Fore.YELLOW + "wrote:", Fore.WHITE + f'"{message.content}"')
             await message.reply("I am an idiot bot! XD", mention_author=True)
 
 intents = discord.Intents.default()
