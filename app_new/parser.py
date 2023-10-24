@@ -6,7 +6,7 @@ def parse(msg : discord.message.Message) -> None:
     return preparedMessage
 
 def prepareMessage(msg : str) -> str:
-    msg = msg[2:].strip().lower()
+    msg = msg[1:].strip().lower()
     msg = ' '.join(msg.split())
     return msg
 

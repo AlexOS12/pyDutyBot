@@ -9,7 +9,7 @@ class MyClient(discord.Client):
     async def on_message(self, msg: discord.message.Message):
         if msg.author.id == self.user.id: pass
 
-        if msg.content.startswith('!/'):
+        if msg.content.startswith('/'):
             print(f"{msg.author.name} {'[Trusted]' if parser.isInTrustedList(msg.author) else ''} wrote: {msg.content}")
             ans = parser.parse(msg)
             await msg.reply(ans, mention_author=True)
