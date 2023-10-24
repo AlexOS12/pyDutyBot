@@ -10,9 +10,17 @@ class MyClient(discord.Client):
         if msg.author.id == self.user.id: pass
 
         if msg.content.startswith('/'):
-            print(f"{msg.author.name} {'[Trusted]' if parser.isInTrustedList(msg.author) else ''} wrote: {msg.content}")
-            ans = parser.parse(msg)
-            await msg.reply(ans, mention_author=True)
+            print(f"{msg.id} | {msg.author.name} {'[Trusted]' if parser.isInTrustedList(msg.author) else ''} wrote: {msg.content}")
+            ans, code = parser.parse(msg)
+            print(f"Reply to {msg.id} | answer: {ans} | code: {code}")
+            if code == 1:
+                await msg.reply("Извините босс, я не справился(", mention_author=True)
+            elif code == -1:
+                await msg.reply(ans, mention_author=True)
+                await msg.channel.send("everyone! Я иду на покой")
+                exit(0) # надо будет придумать более безопасный способ заверешения работы Билли
+            else:
+                await msg.reply(ans, mention_author=True)
 
 intents = discord.Intents.default()
 intents.members = True
