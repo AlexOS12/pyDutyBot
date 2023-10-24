@@ -1,4 +1,3 @@
-__pycache__
-/app/dbworker/__pycache__
-/app/*.txt
+**/__pycache__
+**/*.txt
 datas
